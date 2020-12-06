@@ -4,13 +4,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion(29)
-    buildToolsVersion("29.0.3")
+    compileSdkVersion(30)
 
     defaultConfig {
         applicationId = "com.surrus.bikeshare"
         minSdkVersion(21)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
 
         versionCode = 1
         versionName = "1.0"
@@ -28,7 +27,8 @@ android {
 
     buildTypes {
         getByName("release") {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
@@ -73,6 +73,8 @@ dependencies {
     implementation(Koin.android)
     implementation(Koin.androidViewModel)
     implementation(Koin.compose)
+
+    implementation("org.osmdroid:osmdroid-android:6.1.8")
 
     testImplementation("junit:junit:4.13")
     androidTestImplementation("androidx.test:runner:1.2.0")
